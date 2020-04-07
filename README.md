@@ -7,7 +7,7 @@
 ```
 implementation 'com.github.Tareafengye:WeChatPhoto:1.0'
 ```
-# 使用方法，kotlin MainActivity
+
 
 # 回调工具参数
 ```
@@ -20,7 +20,7 @@ object Config {
 
 }
 ```
-
+# 使用方法，kotlin MainActivity
 ```
 
 class MainActivity : AppCompatActivity() {
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 ```
-WelcomeActivity.kt
+# WelcomeActivity.kt
 
 ```
 
@@ -154,7 +154,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
 ```
-#布局文件 activity_main
+# 布局文件 activity_main
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -180,7 +180,7 @@ class WelcomeActivity : AppCompatActivity() {
 
 </LinearLayout>
 ```
-#布局文件Activity_welcome
+# 布局文件Activity_welcome
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
