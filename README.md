@@ -3,10 +3,13 @@
 
 
 [原文地址:](https://github.com/xionger0520/flowcamera)
-在工程中implementation 'com.github.Tareafengye:WeChatPhoto:1.0'
-#使用方法，kotlin MainActivity
+# 在工程中
+```
+implementation 'com.github.Tareafengye:WeChatPhoto:1.0'
+```
+# 使用方法，kotlin MainActivity
 
-#回调工具参数
+# 回调工具参数
 ```
 object Config {
     const val REQUEST_CODE_REQUEST = 100
