@@ -1,4 +1,4 @@
-# WeChatPhoto
+### （WechatPhoto）
 仿微信拍照长按录制
 
 
