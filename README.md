@@ -2,7 +2,7 @@
 仿微信拍照长按录制
 
 
-[原文地址:](https://github.com/xionger0520/flowcamera)
+[](https://github.com/xionger0520/flowcamera)
 # 在工程中
 ```
 implementation 'com.github.Tareafengye:WeChatPhoto:1.0'
