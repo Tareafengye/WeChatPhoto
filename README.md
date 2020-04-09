@@ -136,11 +136,10 @@ class WelcomeActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode==Config.REQUEST_CODE_REQUEST && resultCode==Config.REQUEST_CODE_REQUEST_VIDEO){
             //返回视频
-            var string=data!!.getStringExtra("data")
-            LogUtils.d(TAG+"==================================视频")
-            LogUtils.d(TAG+"==============="+string+"===================")
-            LogUtils.d(TAG+"==================================")
-            Glide.with(this@WelcomeActivity).load(Uri.fromFile(File(string))).into(mIvFiles);
+            var videoPath = data!!.getStringExtra("data")
+            LogUtils.d(TAG + "===============获取视频总时长:" + VideoPathUtils.getLocalVideoDuration(videoPath) + "===================")
+            LogUtils.d(TAG + "===============获取视频转换:" + VideoPathUtils.getLocalVideoMinute(videoPath) + "===================")
+
 
         }else if (requestCode==Config.REQUEST_CODE_REQUEST && resultCode==Config.RESULT_CODE_REQUEST_CAMERA){
             var string=data!!.getStringExtra("data")
@@ -153,6 +152,56 @@ class WelcomeActivity : AppCompatActivity() {
 
     }
 
+```
+# VideoPathUtils工具
+```
+object VideoPathUtils {
+    /***
+     * @param videoPath 视频文件路径
+     * @return 返回视频时长，返回毫秒
+     */
+    fun getLocalVideoDuration(videoPath: String?): Long {
+        val duration: Long
+        duration = try {
+            val mmr = MediaMetadataRetriever()
+            mmr.setDataSource(videoPath)
+            mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toLong()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return 0
+        }
+        return duration
+    }
+
+    /***
+     * @param videoPath 文件路径，转换之后分钟秒等
+     */
+    fun getLocalVideoMinute(videoPath: String?): String {
+        val duration: Long
+        duration = try {
+            val mmr = MediaMetadataRetriever()
+            mmr.setDataSource(videoPath)
+            mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toLong()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return "0"
+        }
+        var time = ""
+        val minute = duration / 60000
+        val seconds = duration % 60000
+        val second = Math.round(seconds.toFloat() / 1000).toLong()
+        if (minute < 10) {
+            time += "0"
+        }
+        time += "$minute:"
+        if (second < 10) {
+            time += "0"
+        }
+        time += second
+        return time
+//        return duration
+    }
+    }
 ```
 # 布局文件 activity_main
 ```
