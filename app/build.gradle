@@ -36,12 +36,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    api project(":camera")
+//    api project(":camera")
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //权限
     implementation 'com.blankj:utilcodex:1.26.0'
+    implementation 'com.github.Tareafengye:WeChatPhoto:1.0'
 }
 repositories {
     mavenCentral()
